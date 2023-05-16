@@ -1,0 +1,3 @@
+# ignore tex output files except pdf and tex 
+*.aux
+*.log
