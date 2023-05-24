@@ -1,29 +1,33 @@
 #ifndef HASHMAP_H
 #define HASHMAP_H
 
+#include <stdio.h>
+
 /*
  * This implementation roughly follows the one in this CACM paper
  * https://pdfs.semanticscholar.org/ff4d/1c5deca6269cc316bfd952172284dbf610ee.pdf
  * (also see Litwin linear hashing algorithm)
 */
 
-typedef struct hashmap hashmap;
+typedef struct Hashmap Hashmap;
 
-struct hashmap
+struct Hashmap
 {
-    int
+    Bucket* Buckets;
+    // - Number of Buckets in hashmap
+    size_t size;
 };
 
 // - Create new hashmap object
-hashmap* hashmap_new();
+Hashmap* hashmap_new();
 
 // - Hash function
 void hashmap_hash();
 
-// - Expand table by 1 bucket
+// - Expand table by 1 Bucket
 void hashmap_expand();
 
-// - Shrink table by 1 bucket
+// - Shrink table by 1 Bucket
 void hashmap_shrink();
 
 #endif // HASHMAP_H
